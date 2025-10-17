@@ -1,0 +1,32 @@
+name: CI/CD Pipeline - Deploy Static Website
+
+# Trigger the workflow on every push to main branch
+on:
+  push:
+    branches:
+      - main
+
+# Permissions required for GitHub Pages deployment
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: (Optional) Build step if you have a build process
+      # For pure HTML/CSS/JS, you can skip this
+      - name: Build (optional)
+        run: echo "No build step needed for static HTML/CSS/JS"
+
+      # Step 3: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Root folder for pure HTML/CSS/JS
