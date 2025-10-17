@@ -1,0 +1,534 @@
+-------------------- RESET -------------------- * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* -------------------- HEADER -------------------- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo .yellow {
+    color: #f8c100;
+}
+
+.logo .green {
+    color: #4caf50;
+}
+
+.delivery {
+    margin-left: 30px;
+}
+
+.delivery h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.delivery p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.delivery i {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+/* -------------------- SEARCH BAR -------------------- */
+.SearchBar__Container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 450px;
+    background: #fff;
+    position: relative;
+}
+
+.SearchBar__IconContainer {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.SearchBar__Input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+    z-index: 2;
+}
+
+.SearchBar__PlaceholderContainer {
+    position: absolute;
+    left: 40px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.SearchBar__AnimationWrapper {
+    display: flex;
+    flex-direction: column;
+    animation: scrollText 20s linear infinite;
+}
+
+.SearchBar__AnimationText {
+    font-size: 14px;
+    color: #888;
+    line-height: 20px;
+}
+
+@keyframes scrollText {
+
+    0%,
+    10% {
+        transform: translateY(0);
+    }
+
+    20%,
+    30% {
+        transform: translateY(-20px);
+    }
+
+    40%,
+    50% {
+        transform: translateY(-40px);
+    }
+
+    60%,
+    70% {
+        transform: translateY(-60px);
+    }
+
+    80%,
+    90% {
+        transform: translateY(-80px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* -------------------- LOGIN & CART -------------------- */
+.login {
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart i {
+    margin-right: 8px;
+}
+
+.login:hover,
+.cart:hover {
+    opacity: 0.8;
+}
+
+/* -------------------- CONTAINER & CARDS -------------------- */
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.cards {
+    position: relative;
+    width: 335px;
+    height: 195px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+/* -------------------- GRID -------------------- */
+.container1 {
+    width: 100%;
+    max-width: 1320px;
+    margin: auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 128px);
+    grid-template-rows: repeat(2, 188px);
+    gap: 16px;
+    justify-content: center;
+}
+
+.item {
+    width: 128px;
+    height: 188px;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    display: block;
+}
+
+/* -------------------- LOGIN POPUP -------------------- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background: #fff;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+
+.popup img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.popup h2 {
+    margin: 10px 0;
+}
+
+.popup input {
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.popup button {
+    width: 85%;
+    padding: 12px;
+    background: #888;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: not-allowed;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.popup button.active {
+    background: green;
+    cursor: pointer;
+}
+
+.popup small {
+    display: block;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #555;
+}
+
+.popup small a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.section {
+    position: relative;
+    padding: 20px;
+    background: #fff;
+}
+
+.scroll-container {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 160px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    text-align: left;
+}
+
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.delivery-time {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.delivery-time i {
+    color: #c2a200;
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    margin: 4px 0;
+}
+
+.product-quantity {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.price-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #111;
+}
+
+.add-btn {
+    background: #fff;
+    color: #22a02a;
+    border: 1px solid #22a02a;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: #22a02a;
+    color: #fff;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+}
+
+.leftBtn {
+    left: 0;
+}
+
+.rightBtn {
+    right: 0;
+}
+/* Footer Grid */
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer ul li a:hover {
+    color: #000;
+}
+
+/* App Store Links */
+.app-links {
+    margin: 25px 0;
+}
+
+.app-links img {
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.social-icons a:hover {
+    background: #28a745;
+}
+
+/* Bottom Text */
+.footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+}
+
+.seeAllBtn {
+    background-color: #22a02a;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    float: right;
+}
+
+.seeAllBtn:hover {
+    background-color: #1a7d21;
+}
